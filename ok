@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+	int data;
+	 node* next;
+};
+
+struct Graph{
+	int value;
+	char* color;
+	vector<int> v;
+	vector<node*> N;
+};
+
+
+
+node* insert_begin(node*head,int data){
+	node* p;
+	node* temp=new node;
+	temp->data=data;
+	temp->next=NULL;
+	if(head==NULL){
+		
+		head=temp;
+	}
+	else{
+		p=head;
+		while(p->next)
+			p=p->next;
+		
+		p->next=temp;
+		// temp->next=NULL;
+
+	}
+	return head;
+
+
+}
+
+void show(node* head){
+	node* p=head;
+	while(p){
+		cout<<p->data<<"\t";
+		p=p->next;
+	}
+	cout<<"\n";
+
+}
+void add_vertex(Graph* g,int val){
+	g->value=val;
+	(g->v).push_back(val);
+	
+
+}
+
+
+
+
+
+
+
+int main(){
+
+	node* head=NULL;
+	head=insert_begin(head,12);
+	head=insert_begin(head,20);
+	Graph* g=NULL;
+	add_vertex(g,23);
+	show(head);
+}
